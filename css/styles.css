@@ -1,0 +1,218 @@
+/* MOBILE AND GLOBAL STYLES */
+
+/* applies to screens smaller than 500px (first breakpoint) */
+/* and above unless overwritten below */
+
+body {
+    background: #F8F8FF;
+    font-family: Arial;
+}
+header{
+    text-align: center;
+    font-size: 1.2em;
+}
+
+p {
+    font-size: 1em;
+    display: flex;
+}
+
+nav {
+    display: none;
+    clear: both;
+    justify-content: center;
+    background: #333;
+    flex-direction: column;
+}
+nav a {
+    padding: 1.25em 1.5em;
+    color: #ccc;
+    background: #555;
+    text-decoration: none;
+    transition: all 1.5s;
+}
+
+.menu {
+    text-align: center;
+    color: #fff;
+    line-height: 2em;
+}
+.menu-toggle {
+    display: flex;
+}
+.menubtn{
+    width: 2em;
+    height: 2em;
+    margin: auto;
+}
+
+.signup {
+    width: 300px;
+    margin: 0 auto;
+}
+.signup h1 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 15px 0 15px 0;
+}
+.signup input[type="email"],
+.signup input[type="password"],
+.signup input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    margin-bottom: 15px;
+    box-sizing:border-box;
+}
+.signup input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #535b63;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.login {
+    width: 300px;
+    margin: 0 auto;
+
+}
+.login h1 {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 15px 0 15px 0;
+}
+.login input[type="password"],
+.login input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    margin-bottom: 15px;
+    box-sizing:border-box;
+}
+.login input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #535b63;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.addbtns{
+    padding: 1em;
+}
+
+.addmonthlybudget,
+.addspenddetails,
+.addweeklybudget{
+    padding: 1em;
+}
+
+.budgetaccordion {
+    background-color: 	#008B8B;
+    color: #444;
+    cursor: pointer;
+    padding: 0.8em;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    color: #ffffff;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.budgetaccordion:hover {
+    background-color: #8B008B;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 1em;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+
+
+/* TABLET STYLES */
+
+@media screen and (min-width: 500px) {
+
+    /* applies to screens wider than 499px */
+
+    body {
+        background: #cfc;
+    }
+    .menu {
+        display: none;
+    }
+    nav {
+        display: flex;
+        flex-direction: row;
+    }
+    nav a:hover {
+        color: #dfd;
+        background: 	#778899;
+    }
+    .active{
+        background-color: #8B008B;
+    }
+
+}
+
+/* DESKTOP STYLES */
+
+@media screen and (min-width: 1000px) {
+
+    /* applies to screens wider than 999px */
+
+    body {
+        background: #FFFFFF;
+    }
+
+    .active{
+        background-color: #9932CC;
+    }
+
+    .menu {
+        background: #708090;
+        text-align: center;
+        color: #fff;
+        line-height: 2em;
+    }
+
+    header{
+        font-size: 1.4em;
+    }
+
+    p{
+        font-size: 1.1em;
+    }
+
+    h2{
+        font-size: 1.3em;
+    }
+
+    .active{
+        background-color: #8B008B;
+    }
+
+    nav a {
+        padding: 1.3em 1em;
+        color: #ccc;
+        background: #535b63;
+        text-decoration: none;
+        transition: all 1.5s;
+    }
+
+
+}

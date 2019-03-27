@@ -36,6 +36,42 @@ if (isset($_SESSION['loggedin'])) {
     $totalresult=$stmttotal->fetch(PDO::FETCH_ASSOC);
     $totalmonthly=$totalresult['totalmonth'];
 
+    //gets the week1spend from monthly details table
+    $sqlweek1="SELECT `week1spend` AS week1spend FROM `monthly_details` WHERE username='$loggedinuser'";
+    $stmtweek1= $conn->prepare($sqlweek1);
+    $stmtweek1->execute();
+
+    //gets the week 1 spend data and creates a variable
+    $week1result=$stmtweek1->fetch(PDO::FETCH_ASSOC);
+    $week1spend=$week1result['week1spend'];
+
+    //gets the week2spend from monthly details
+    $sqlweek2="SELECT `week2spend` AS week2spend FROM `monthly_details` WHERE username='$loggedinuser'";
+    $stmtweek2= $conn->prepare($sqlweek2);
+    $stmtweek2->execute();
+
+    //gets the week2 data and creates variable
+    $week2result=$stmtweek2->fetch(PDO::FETCH_ASSOC);
+    $week2spend=$week2result['week2spend'];
+
+    //gets the week3spend from the monthly details table in the database
+    $sqlweek3="SELECT `week3spend` AS week3spend FROM `monthly_details` WHERE username='$loggedinuser'";
+    $stmtweek3= $conn->prepare($sqlweek3);
+    $stmtweek3->execute();
+
+    //gets the week3 data and creates variable
+    $week3result=$stmtweek3->fetch(PDO::FETCH_ASSOC);
+    $week3spend=$week3result['week3spend'];
+
+    //gets the week4spend from monthly details
+    $sqlweek4="SELECT `week4spend` AS week4spend FROM `monthly_details` WHERE username='$loggedinuser'";
+    $stmtweek4= $conn->prepare($sqlweek4);
+    $stmtweek4->execute();
+
+    //gets the week4 data and creates variable
+    $week4result=$stmtweek4->fetch(PDO::FETCH_ASSOC);
+    $week4spend=$week4result['week4spend'];
+
     //this sql query gets the users weekly budget
     $sqlweek="SELECT `weeklybudget` AS budgetweekly FROM `weekly_details` WHERE username='$loggedinuser'";
     $stmtweek= $conn->prepare($sqlweek);
@@ -63,7 +99,12 @@ if (isset($_SESSION['loggedin'])) {
     $remainweekresult=$stmtremaining->fetch(PDO::FETCH_ASSOC);
     $remainweekly=$remainweekresult['remainingweekly'];
 
-
+    $monthpoints = array(
+        array("y" => $week1spend, "label" => "Week 1 Spend" ),
+        array("y" => $week2spend, "label" => "Week 2 Spend" ),
+        array("y" => $week3spend, "label" => "Week 3 Spend" ),
+        array("y" => $week4spend, "label" => "Week 4 Spend" ),
+    )
 ?>
 <!doctype html>
 <html lang="en">
@@ -72,7 +113,29 @@ if (isset($_SESSION['loggedin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Year Project</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        window.onload = function() {
 
+            var chart = new CanvasJS.Chart("monthlychartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                    text: "Weekly Spend in a Month"
+                },
+                axisY: {
+                    title: "Spend (£)"
+                },
+                data: [{
+                    type: "column",
+                    yValueFormatString: "£#,##0.##",
+                    dataPoints: <?php echo json_encode($monthpoints, JSON_NUMERIC_CHECK); ?>
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 <body>
 
@@ -110,6 +173,7 @@ if (isset($_SESSION['loggedin'])) {
         <p>Your budget is £<?php echo "$monhtlybudget"?></p>
         <p>You have so far spent £<?php echo "$totalmonthly"?> this month</p>
         <p>Your remaining budget is £<?php echo"$monthlyremaining"?></p>
+        <div class="monthchart" id="monthlychartContainer" "></div>
     </div>
 
     <button class="budgetaccordion">

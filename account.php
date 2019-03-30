@@ -1,3 +1,8 @@
+<?php
+include 'config.php';
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,29 +20,20 @@
 <div class="menu" id="menu-toggle"><img src="pictures/364-01-512.png" alt="menu" class="menubtn"></div>
 <nav id="menu-nav">
     <a href="index.php">Home</a>
-    <a href="budget.php">Budget</a>
+    <a href="monthlybudget.php">Monthly Budget</a>
+    <a href="weeklybudget.php">Weekly Budget</a>
     <a href="spenddetails.php">Spend Details</a>
     <a href="account.php" class="active">Your Account</a>
+    <?php if (isset($_SESSION['loggedin'])) {
+        // If logged in
+        echo '<a href="logout.php">Logout</a>';
+    }else{
+        echo '<a href="login.php">Log In</a>';
+    }
+    ?>
 </nav>
 
 
 <script src="js/scripts.js"></script>
 </body>
 </html>
-
-
-<?php
-
-include 'config.php';
-session_start();
-// this checks to see if user is logged in
-if (isset($_SESSION['loggedin'])) {
-
-    echo 'Welcome ' . $_SESSION['name'] . '! <br> 
-    <form action="logout.php" method="post">
-        <input type="submit" value="Logout">
-    </form>';
-} else {
-    // if they aren't logged in then it will take them to login page
-    header('Location: login.php');}
-?>

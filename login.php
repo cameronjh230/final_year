@@ -57,7 +57,7 @@ if (isset($_POST['loginsubmit'])){
         if ($validpassword) {
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
-            header("Location: budget.php");
+            header("Location: index.php");
         } else{
             echo "Incorrect Username or Password";
         }

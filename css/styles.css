@@ -4,7 +4,7 @@
 /* and above unless overwritten below */
 
 body {
-    background: #F8F8FF;
+    background: #fff;
     font-family: Arial;
 }
 header{
@@ -32,6 +32,13 @@ nav a {
     transition: all 1.5s;
 }
 
+li{
+    font-size: 1em;
+}
+
+.active{
+    background-color: #8B008B;
+}
 .menu {
     text-align: center;
     color: #fff;
@@ -46,13 +53,21 @@ nav a {
     margin: auto;
 }
 
-.signup {
+.monthlyform {
     width: 300px;
     margin: 0 auto;
 }
+.monthlyform h1{
+    font-weight: bold;
+}
+
+.signup {
+    width: 300px;
+    margin: auto;
+}
 .signup h1 {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
     padding: 15px 0 15px 0;
 }
@@ -115,32 +130,51 @@ nav a {
     padding: 1em;
 }
 
-.budgetaccordion {
-    background-color: 	#008B8B;
-    color: #444;
+.piehchart,
+.monthchart,
+.weeklychart{
+    height: 20em;
+}
+
+.budgpic {
+    height: 9em;
+    width: 9em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.detailsaccordion,
+.weeklysummaryaccordion,
+.monthaccordion{
+    background-color: #000000;
+    color: #fff;
     cursor: pointer;
-    padding: 0.8em;
+    padding: 18px;
     width: 100%;
     text-align: left;
     border: none;
     outline: none;
     transition: 0.4s;
-    color: #ffffff;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.budgetaccordion:hover {
-    background-color: #8B008B;
+.detailsaccordion:hover{
+    background-color: #535b63;
+}
+.weeklysummaryaccordion:hover{
+    background-color: #535b63;
+}
+.monthaccordion:hover{
+    background-color: #535b63;
 }
 
-/* Style the accordion panel. Note: hidden by default */
 .panel {
-    padding: 1em;
+    padding: 0 18px;
     background-color: white;
     display: none;
     overflow: hidden;
 }
-
 
 
 /* TABLET STYLES */
@@ -150,7 +184,7 @@ nav a {
     /* applies to screens wider than 499px */
 
     body {
-        background: #cfc;
+        background: #fff;
     }
     .menu {
         display: none;
@@ -179,9 +213,7 @@ nav a {
         background: #FFFFFF;
     }
 
-    .active{
-        background-color: #9932CC;
-    }
+
 
     .menu {
         background: #708090;
@@ -202,8 +234,8 @@ nav a {
         font-size: 1.3em;
     }
 
-    .active{
-        background-color: #8B008B;
+    li{
+        font-size: 1.1em;
     }
 
     nav a {

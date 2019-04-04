@@ -35,10 +35,16 @@
         </form>
 
         <br>
-        <button class="home" type="button" ><a href="monthlybudget.php">Back</a> </button>
 
     </div>
 
+    <div class="monthbtn">
+      <button class="home" type="button" onclick="window.location.href='monthlybudget.php'">Back </button>
+      <br>
+      <form method="post">
+            <input type="submit" name="resetmonthly" value="Reset Values">
+      </form>
+    </div>
 <script src="js/scripts.js"></script>
 </body>
 </html>
@@ -49,8 +55,6 @@ include 'config.php';
 session_start();
 // this checks to see if user is logged in
 if (isset($_SESSION['loggedin'])) {
-
-    echo 'Welcome ' . $_SESSION['name'] . '! <br>';
 } else {
     // if they aren't logged in then it will take them to login page
     header('Location: login.php');
@@ -140,7 +144,38 @@ $sqlremaining="UPDATE `monthly_details` SET monthleft='$remainingmonthly' WHERE 
 $remainstmt= $conn->prepare($sqlremaining);
 $remainstmt->execute();
 
+//code for reset button, if its clicked all attributes will be set to NULL
+if(isset($_POST['resetmonthly'])) {
+    $sqlreset1 = "UPDATE `monthly_details` SET monthlybudget=NULL";
+    $stmtreset1 = $conn->prepare($sqlreset1);
+    $stmtreset1->execute();
 
+    $sqlreset2 = "UPDATE `monthly_details` SET week1spend=NULL";
+    $stmtreset2 = $conn->prepare($sqlreset2);
+    $stmtreset2->execute();
+
+    $sqlreset3 = "UPDATE `monthly_details` SET week2spend=NULL";
+    $stmtreset3 = $conn->prepare($sqlreset3);
+    $stmtreset3->execute();
+
+    $sqlreset4 = "UPDATE `monthly_details` SET week3spend=NULL";
+    $stmtreset4 = $conn->prepare($sqlreset4);
+    $stmtreset4->execute();
+
+    $sqlreset5 = "UPDATE `monthly_details` SET week4spend=NULL";
+    $stmtreset5 = $conn->prepare($sqlreset5);
+    $stmtreset5->execute();
+
+    $sqlreset6 = "UPDATE `monthly_details` SET monthtotal=NULL";
+    $stmtreset6 = $conn->prepare($sqlreset6);
+    $stmtreset6->execute();
+
+    $sqlreset7 = "UPDATE `monthly_details` SET monthleft=NULL";
+    $stmtreset7 = $conn->prepare($sqlreset7);
+    $stmtreset7->execute();
+
+    echo "Reset monthly details";
+}
 
 ?>
 

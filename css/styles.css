@@ -32,10 +32,6 @@ nav a {
     transition: all 1.5s;
 }
 
-li{
-    font-size: 1em;
-}
-
 .active{
     background-color: #8B008B;
 }
@@ -53,16 +49,13 @@ li{
     margin: auto;
 }
 
-.monthlyform {
-    width: 300px;
-    margin: 0 auto;
-}
-.monthlyform h1{
-    font-weight: bold;
-}
-
-.signup {
-    width: 300px;
+.signup,
+.login,
+.monthlyform,
+.weeklyform,
+.spendform,
+.alterform{
+    width: 20em;
     margin: auto;
 }
 .signup h1 {
@@ -75,14 +68,14 @@ li{
 .signup input[type="password"],
 .signup input[type="text"] {
     width: 100%;
-    padding: 15px;
+    padding: 0.9em;
     border: 1px solid #dddddd;
     margin-bottom: 15px;
     box-sizing:border-box;
 }
 .signup input[type="submit"] {
     width: 100%;
-    padding: 15px;
+    padding: 0.9em;
     background-color: #535b63;
     border: 0;
     box-sizing: border-box;
@@ -91,27 +84,22 @@ li{
     color: #ffffff;
 }
 
-.login {
-    width: 300px;
-    margin: 0 auto;
-
-}
 .login h1 {
     text-align: center;
     font-size: 1.5em;
-    padding: 15px 0 15px 0;
+    padding: 0.7em 0 0.7em 0;
 }
 .login input[type="password"],
 .login input[type="text"] {
     width: 100%;
-    padding: 15px;
+    padding: 0.9em;
     border: 1px solid #dddddd;
     margin-bottom: 15px;
     box-sizing:border-box;
 }
 .login input[type="submit"] {
     width: 100%;
-    padding: 15px;
+    padding: 0.9em;
     background-color: #535b63;
     border: 0;
     box-sizing: border-box;
@@ -120,7 +108,8 @@ li{
     color: #ffffff;
 }
 
-.addbtns{
+.addbtns,
+.weekbtn{
     padding: 1em;
 }
 
@@ -147,16 +136,18 @@ li{
 
 .detailsaccordion,
 .weeklysummaryaccordion,
-.monthaccordion{
+.monthaccordion,
+.tipsaccordion{
     background-color: #000000;
     color: #fff;
     cursor: pointer;
-    padding: 18px;
+    padding: 0.7em;
     width: 100%;
     text-align: left;
     border: none;
     outline: none;
     transition: 0.4s;
+    font-size: 1.2em;
 }
 
 .detailsaccordion:hover{
@@ -168,12 +159,41 @@ li{
 .monthaccordion:hover{
     background-color: #535b63;
 }
+.tipsaccordion:hover{
+    background-color: #535b63
+}
 
 .panel {
-    padding: 0 18px;
-    background-color: white;
+    padding: 0.5em;
+    background-color: 	#D3D3D3;
     display: none;
     overflow: hidden;
+    font-size: 1em;
+}
+
+.monthlyform input[type="number"],
+.spendform input[type="number"],
+.weeklyform input[type="number"],
+.alterform input[type="text"],
+.alterform input[type="password"],
+.alterform input[type="email"]{
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #dddddd;
+     box-sizing:border-box;
+}
+.monthlyform input[type="submit"],
+.spendform input[type="submit"],
+.weeklyform input[type="submit"],
+.alterform input[type="submit"]{
+    width: 100%;
+    padding: 0.8em;
+    background-color: #535b63;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 
@@ -227,7 +247,7 @@ li{
     }
 
     p{
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
 
     h2{
@@ -244,6 +264,10 @@ li{
         background: #535b63;
         text-decoration: none;
         transition: all 1.5s;
+    }
+
+    .panel{
+        font-size: 1.1em;
     }
 
 

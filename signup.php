@@ -11,7 +11,7 @@
 <div class="signup">
     <h1>Sign Up</h1>
     <form method="post">
-        <input type="text" name="username" placeholder="username" required>
+        <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="forename" placeholder="Forename" required>

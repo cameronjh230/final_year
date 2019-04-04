@@ -114,7 +114,7 @@ if (isset($_SESSION['loggedin'])) {
     <div class="menu" id="menu-toggle"><img src="pictures/364-01-512.png" alt="menu" class="menubtn"></div>
     <nav id="menu-nav">
         <a href="index.php">Home</a>
-        <a href="monthlybudget.php">MonthlyBudget</a>
+        <a href="monthlybudget.php">Monthly     Budget</a>
         <a href="weeklybudget.php">Weekly Budget</a>
         <a href="spenddetails.php" class="active">Spend Details</a>
         <a href="account.php" >Your Account</a>
@@ -128,8 +128,7 @@ if (isset($_SESSION['loggedin'])) {
     </nav>
 
     <div class="addbtns">
-        <button class="addspenddetails">
-            <a href="addspenddetails.php">Add Spend Details</a>
+        <button class="addspenddetails" type="button" onclick="window.location.href='addspenddetails.php'">Add Spend Details
         </button>
     </div>
 

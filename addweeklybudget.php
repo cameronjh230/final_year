@@ -45,10 +45,20 @@
             <input type="submit" name="addday7" value="Add Day 7 Spend">
         </form>
 
-        <br>
-        <button class="home" type="button" ><a href="weeklybudget.php">Back</a> </button>
+
 
     </div>
+
+    <br>
+    <div class="weekbtn">
+    <button class="home" type="button" onclick="window.location.href='weeklybudget.php'">Back</button>
+    <br>
+    <form method="post">
+        <input type="submit" name="resetweekly" value="Reset Values">
+    </form>
+    </div>
+
+
 
 <script src="js/scripts.js"></script>
 </body>
@@ -60,8 +70,6 @@ include 'config.php';
 session_start();
 // this checks to see if user is logged in
 if (isset($_SESSION['loggedin'])) {
-
-    echo 'Welcome ' . $_SESSION['name'] . '! <br>';
 } else {
     // if they aren't logged in then it will take them to login page
     header('Location: login.php');
@@ -183,5 +191,48 @@ $sqlremaining="UPDATE `weekly_details` SET weeklyleft='$remainingweekly' WHERE u
 $remainstmt= $conn->prepare($sqlremaining);
 $remainstmt->execute();
 
+//code for reset button, if its clicked all attributes will be set to NULL
+if(isset($_POST['resetweekly'])) {
+    $sqlreset1 = "UPDATE `weekly_details` SET weeklybudget=NULL";
+    $stmtreset1 = $conn->prepare($sqlreset1);
+    $stmtreset1->execute();
 
+    $sqlreset2 = "UPDATE `weekly_details` SET day1spend=NULL";
+    $stmtreset2 = $conn->prepare($sqlreset2);
+    $stmtreset2->execute();
+
+    $sqlreset3 = "UPDATE `weekly_details` SET day2spend=NULL";
+    $stmtreset3 = $conn->prepare($sqlreset3);
+    $stmtreset3->execute();
+
+    $sqlreset4 = "UPDATE `weekly_details` SET day3spend=NULL";
+    $stmtreset4 = $conn->prepare($sqlreset4);
+    $stmtreset4->execute();
+
+    $sqlreset5 = "UPDATE `weekly_details` SET day4spend=NULL";
+    $stmtreset5 = $conn->prepare($sqlreset5);
+    $stmtreset5->execute();
+
+    $sqlreset6 = "UPDATE `weekly_details` SET day5spend=NULL";
+    $stmtreset6 = $conn->prepare($sqlreset6);
+    $stmtreset6->execute();
+
+    $sqlreset7 = "UPDATE `weekly_details` SET day6spend=NULL";
+    $stmtreset7 = $conn->prepare($sqlreset7);
+    $stmtreset7->execute();
+
+    $sqlreset8 = "UPDATE `weekly_details` SET day7spend=NULL";
+    $stmtreset8 = $conn->prepare($sqlreset8);
+    $stmtreset8->execute();
+
+    $sqlreset9 = "UPDATE `weekly_details` SET totalweeklyspend=NULL";
+    $stmtreset9 = $conn->prepare($sqlreset9);
+    $stmtreset9->execute();
+
+    $sqlreset10 = "UPDATE `weekly_details` SET weeklyleft=NULL";
+    $stmtreset10 = $conn->prepare($sqlreset10);
+    $stmtreset10->execute();
+
+    echo "Reset weekly details";
+}
 ?>

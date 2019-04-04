@@ -48,7 +48,7 @@ if (isset($_POST['loginsubmit'])){
     $numrows = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($numrows === false){
-         echo "User does not exist";
+         echo "Incorrect username or password";
 
      } else {
 

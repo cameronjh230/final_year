@@ -136,9 +136,7 @@ if (isset($_SESSION['loggedin'])) {
     </div>
     <div class="monthoptions">
         <div class="addbtns">
-            <button class="addmonthlybudget" type="button">
-                <a href="addmonthlybudget.php">Add/Update Monthly Budget</a>
-            </button>
+            <button class="addmonthlybudget" type="button" onclick="window.location.href='addmonthlybudget.php'">Add/Update Monthly Budget</button>
         </div>
         <button class="monthaccordion">Summary</button>
         <div class="panel">

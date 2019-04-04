@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="weeklyform">
+    <div class="spendform">
         <h1>
-            Add Weekly Budget
+            Add Spend Details
         </h1>
         <form class="bills" method="post">
             <input type="number" step="0.01" min="0" name="billsspend" placeholder="Bills" required>
@@ -37,7 +37,7 @@
         </form>
 
         <br>
-        <button class="home" type="button" ><a href="spenddetails.php">Back</a> </button>
+        <button class="home" type="button" onclick="window.location.href='spenddetails.php'">Back</button>
 
     </div>
 
@@ -50,8 +50,6 @@ include 'config.php';
 session_start();
 // this checks to see if user is logged in
 if (isset($_SESSION['loggedin'])) {
-
-    echo 'Welcome ' . $_SESSION['name'] . '! <br>';
 } else {
 // if they aren't logged in then it will take them to login page
     header('Location: login.php');

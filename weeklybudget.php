@@ -166,8 +166,7 @@ if (isset($_SESSION['loggedin'])) {
 
     <div class="weekoptions">
         <div class="addbtns">
-            <button class="addweeklybudget" type="button">
-                <a href="addweeklybudget.php">Add/Update Weekly Budget</a>
+            <button class="addweeklybudget" type="button" onclick="window.location.href='addweeklybudget.php'">Add/Weekly Budget
             </button>
         </div>
         <div class="weeksummaryacc">

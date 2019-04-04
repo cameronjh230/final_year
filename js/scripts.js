@@ -9,7 +9,7 @@ const toggleMenu = () => {
 menuToggle.addEventListener("click", toggleMenu);
 
 const week = document.getElementsByClassName("weeklysummaryaccordion");
-    let i;
+let i;
 
     for (i = 0; i < week.length; i++) {
         week[i].addEventListener("click", function() {
@@ -42,18 +42,32 @@ for (b = 0; b < month.length; b++) {
     });
 }
 
-
-
- const details = document.getElementsByClassName("detailsaccordion");
+const details = document.getElementsByClassName("detailsaccordion");
 let z;
 
 for (z = 0; z < details.length; z++) {
     details[z].addEventListener("click", function() {
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
         this.classList.toggle("active");
 
-        /* Toggle between hiding and showing the active panel */
+        /* Hides and shows active panel */
+        let panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+
+const tips = document.getElementsByClassName("tipsaccordion");
+let t;
+
+for (t = 0; t < tips.length; t++) {
+    tips[t].addEventListener("click", function() {
+
+        this.classList.toggle("active");
+
+        /* Hides and shows the active panel */
         let panel = this.nextElementSibling;
         if (panel.style.display === "block") {
             panel.style.display = "none";

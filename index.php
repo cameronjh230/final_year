@@ -50,7 +50,8 @@ session_start();
         <img src="pictures/budgetpic.jpg" alt="budget" class="budgpic">
     </div>
 
-    <button class="tipaccordion">Top Tips</button>
+    <br>
+    <button class="tipsaccordion">Top Tips</button>
     <div class="panel">
         <ul>
             <li>Use the popular 50/30/20 rule to budgeting. This involves dividing your income (after tax
